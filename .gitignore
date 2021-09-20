@@ -6,3 +6,6 @@ build
 
 # Ignora los archivos del IDE en el que son desarrollados
 .idea/
+
+#Ignora archivos de config temporales
+app/src/main/resources/application.yml
