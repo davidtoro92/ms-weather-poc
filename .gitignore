@@ -8,4 +8,5 @@ build
 .idea/
 
 #Ignora archivos de config temporales
+*/application.yml
 app/src/main/resources/application.yml
