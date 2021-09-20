@@ -41,9 +41,9 @@ class WeatherRestClient {
             if (response != null) {
                 return WeatherApiResponse.weatherMapping(response.body)
             } else {
-                //TODO
                 return WeatherApiResponse()
             }
+
         } finally {
             logger.info("[WeatherRestClient.consultarClimaPaisCiudad] Fin consulta rest-client api weather")
         }

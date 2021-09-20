@@ -1,5 +1,8 @@
 package cl.dtoros.weather.poc.dto
 
+import cl.dtoros.weather.poc.exception.WeatherMappingException
+import org.slf4j.LoggerFactory
+
 class WeatherApiResponse {
 
     var coord: CoordenadasApiResponse = CoordenadasApiResponse()
@@ -23,6 +26,9 @@ class WeatherApiResponse {
     }
 
     companion object {
+
+        var logger = LoggerFactory.getLogger(WeatherApiResponse::class.java)
+
         fun weatherMapping(body: LinkedHashMap<*, *>?): WeatherApiResponse {
             if(body != null) {
                 /*Mapeo de Coordenadas*/
@@ -41,8 +47,8 @@ class WeatherApiResponse {
                     mainMap.get("pressure") as Int, mainMap.get("humidity") as Int)
                 return WeatherApiResponse(coord, weather, main)
             } else {
-                //TODO
-                return WeatherApiResponse()
+                logger.error("Error al mapear las variables desde el weather api service.")
+                throw WeatherMappingException("Error al mapear las variables desde el weather api service.")
             }
         }
     }
