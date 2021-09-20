@@ -1,0 +1,10 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+#IMPORTANTE: Para configurar la api ir a https://rapidapi.com/developer/dashboard
+weather:
+  api:
+    host: community-open-weather-map.p.rapidapi.com
+    key: 1b21a2b6eamsh2d0372d7bf64422p191e2ejsn1187eaad1981
+    url: https://community-open-weather-map.p.rapidapi.com/weather?q=%s,%s&lat=0&lon=0&lang=sp&units=metric
